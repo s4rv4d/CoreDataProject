@@ -17,7 +17,9 @@ struct ContentView: View {
         
         VStack {
             
-            FilteredList(filter: filter)
+            FilteredList(filterKey: "lastName", filterValue: filter) { (singer:Singer) in
+                Text("\(singer.wrappedFirstName) \(singer.wrappedLastName)")
+            }
             
             Button("Add") {
                 let taylor = Singer(context: self.moc)
